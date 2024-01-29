@@ -117,6 +117,10 @@ contract ProposalContract {
     function getProposal(uint256 number) external view returns(Proposal memory) {
         return proposal_history[number];
     }
+
+    function isCurrentProposalActive() external view returns(bool) {
+        return proposal_history[counter].is_active;
+    }
     
     function calculateCurrentState() private view returns(bool) {
         Proposal storage proposal = proposal_history[counter];
